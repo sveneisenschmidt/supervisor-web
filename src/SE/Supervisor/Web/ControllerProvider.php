@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Supervistor\Web php app
+ * This file is part of the Supervisor\Web php app
  *
  * (c) Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
  *
