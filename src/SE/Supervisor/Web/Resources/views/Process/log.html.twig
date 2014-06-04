@@ -40,7 +40,6 @@
                 $log.scrollTop($log.get(0).scrollHeight);
             },
             refresh = function() {
-                js.ajaxSetup({ async:false });
                 js.get(window.location.href, function(payload) {
                     var $payload = js(payload),
                         $head = js('#log-title'),
