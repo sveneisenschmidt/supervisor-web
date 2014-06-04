@@ -28,7 +28,9 @@ cp config.json.dist config.json
 ```json
 {
     "supervisor.host": "supervisor-host.intern",
-    "supervisor.port": 9001
+    "supervisor.port": 9001,
+    "supervisor.user": "username",
+    "supervisor.pass": "password"
 }
 ```
 
