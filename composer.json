@@ -1,0 +1,24 @@
+{
+    "name": "se/supervisor-web",
+    "license": "MIT",
+    "type": "project",
+    "description": "Tiny Supervisor web frontend",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "require": {
+        "php": ">=5.4.6",
+        "silex/silex": "~1.2",
+        "twig/twig": "~1.15",
+        "indigophp/supervisor": "~1.2",
+        "igorw/config-service-provider": "~1.2"
+    },
+    "require-dev": {},
+    "scripts": {
+
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "stable"
+}

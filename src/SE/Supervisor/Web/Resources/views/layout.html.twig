@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supervisor Web</title>
+    <link rel="stylesheet" href="{{ app.request.basepath }}/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/bootstrap/bootstrap-theme.min.css">
+    <script src="{{ app.request.basepath }}/jquery/jquery.min.js"></script>
+    <script src="{{ app.request.basepath }}/bootstrap/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+    {% block title %}
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="page-header">
+                    <h1>
+                        Supervisor <small>Web</small>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            {%  if app.session.getFlashBag.peek('success') is defined  %}
+                {% for message in app.session.getFlashBag.get('success') %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            {%  if app.session.getFlashBag.peek('error') is defined  %}
+                {% for message in app.session.getFlashBag.get('error') %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+</div>
+{% block footer %}{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+    (function(js) {
+        var reload  = function() {
+                var $head = js('h1');
+                $head.css('cursor', 'pointer');
+                $head.bind('click', function() {
+                    window.location.reload();
+                });
+            }
+        ;
+
+        js(document).ready(reload);
+    }(jQuery));
+</script>
+{% endblock %}
+</body>
+</html>

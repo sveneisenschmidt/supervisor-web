@@ -1,0 +1,76 @@
+{% extends "layout.html.twig" %}
+{% block title %}
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h3 id="log-title">Process A
+                    <span class ="pull-left">
+                        <a href="{{ app.url_generator.generate('supervisor_index') }}">&laquo;</a>&nbsp;
+                    </span>
+                    <span class="pull-right">
+                        {% if pagination.prev != false %}
+                            <a class="btn btn-medium" href="?page={{ pagination.prev }}">&laquo;</a>
+                        {% else %}
+                            <a class="btn btn-medium disabled">&laquo;</a>
+                        {% endif %}
+                        <small><a href="?page=1">{{ pagination.curr }}</a> / <a href="?page={{ pagination.total }}">{{ pagination.total }}</a></small>
+                        {% if pagination.next != false %}
+                            <a class="btn btn-medium"  href="?page={{ pagination.next }}">&raquo;</a>
+                        {% else %}
+                            <a class="btn btn-medium disabled">&raquo;</a>
+                        {% endif %}
+                    </span>
+                </h3>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <pre id="log-content">{{ contents }}</pre>
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+    (function(js) {
+        var resize = function() {
+                var $head = js('#log-title'),
+                    $log = js('#log-content')
+                ;
+
+                $log.height(js(window).outerHeight() - ($head.outerHeight() * 6));
+                $log.scrollTop($log.get(0).scrollHeight);
+            },
+            refresh = function() {
+                js.ajaxSetup({ async:false });
+                js.get(window.location.href, function(payload) {
+                    var $payload = js(payload),
+                        $head = js('#log-title'),
+                        $log = $log = js('#log-content')
+                    ;
+
+                    $log.text($payload.find('#log-content').text());
+                    $head.html($payload.find('#log-title').html());
+
+                    setTimeout(resize, 1);
+                    setTimeout(refresh, 1000);
+                });
+            },
+            reload  = function() {
+                var $head = js('#log-title');
+                $head.css('cursor', 'pointer');
+                $head.bind('click', function() {
+                    window.location.reload();
+                });
+            }
+         ;
+
+        js(document).ready(resize);
+        js(document).ready(refresh);
+        js(document).ready(reload);
+
+    {% if pagination.curr == 1 %}
+        js(window).resize(resize);
+    {% endif %}
+
+    }(jQuery));
+</script>
+{% endblock %}

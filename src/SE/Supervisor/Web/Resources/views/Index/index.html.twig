@@ -1,0 +1,48 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="list-group">
+                <a class="list-group-item active">Process</a>
+                {% for id, process in all_process %}
+
+                    {% if process.statename == 'RUNNING'  %}
+                        {% set state_class = 'alert-success' %}
+                    {% elseif process.statename == 'FATAL' %}
+                        {% set state_class = 'alert-danger' %}
+                    {% elseif process.statename == 'SHUTDOWN' %}
+                        {% set state_class = 'alert-warning' %}
+                    {% elseif process.statename == 'RESTARTING' %}
+                        {% set state_class = 'alert-warning' %}
+                    {% elseif process.statename == 'STOPPED' %}
+                        {% set state_class = 'alert-warning' %}
+                    {% else %}
+                        {% set state_class = 'alert-warning' %}
+                    {% endif %}
+
+                    <li class="list-group-item">
+                        <b>{{ process.name|e }}</b>
+                        <div class="badge pull-right {{ state_class }}">{{ process.statename|e }}</div>
+                        <div class="pull-right">
+                        {% if process.statename == 'RUNNING'  %}
+                            <a href="{{ app.url_generator.generate('supervisor_process_restart', {id: id }) }}">Restart</a>
+                            <span>&nbsp</span>
+                            <a href="{{ app.url_generator.generate('supervisor_process_stop', {id: id }) }}">Stop</a>
+                        {% endif %}
+                        {% if process.statename == 'STOPPED'  %}
+                            <a href="{{ app.url_generator.generate('supervisor_process_start', {id: id }) }}">Start</a>
+                        {% endif %}
+                            <span>&nbsp</span>
+                            <a href="{{ app.url_generator.generate('supervisor_process_log', {id: id }) }}">Log</a>
+                            <span>&nbsp&nbsp</span>
+                        </div>
+                        <div class="pull-right">
+                            <span><small>{{ process.description|e }}</small></span>
+                            <span>&nbsp&nbsp</span>
+                        </div>
+                    </li>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
