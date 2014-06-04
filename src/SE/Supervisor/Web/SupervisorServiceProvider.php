@@ -26,7 +26,15 @@ class SupervisorServiceProvider implements ServiceProviderInterface
         $app['supervisor'] = $app->share(function ($app) {
             $host = isset($app['supervisor.host']) ? $app['supervisor.host'] : 'localhost';
             $port = isset($app['supervisor.port']) ? $app['supervisor.port'] : 9001;
-            return new Supervisor(new InetConnector($host, $port));
+            $user = isset($app['supervisor.user']) ? $app['supervisor.user'] : null;
+            $pass = isset($app['supervisor.pass']) ? $app['supervisor.pass'] : null;
+
+            $connector = new InetConnector($host, $port);
+            if(!empty($user) && is_string($user) && !empty($pass) && is_string($pass)) {
+                $connector->setCredentials($user, $pass);
+            }
+
+            return new Supervisor($connector);
         });
     }
 

@@ -1,4 +1,6 @@
 {
     "supervisor.host": "localhost",
-    "supervisor.port": 9001
+    "supervisor.port": 9001,
+    "supervisor.user": false,
+    "supervisor.pass": false
 }
