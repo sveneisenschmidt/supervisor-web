@@ -1,6 +1,12 @@
 <?php
-
-
+/**
+ * This file is part of the Supervistor\Web php app
+ *
+ * (c) Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace SE\Supervisor\Web\Controller;
 
 use \Silex\Application;

@@ -1,4 +1,12 @@
 <?php
+/**
+ * This file is part of the Supervistor\Web php app
+ *
+ * (c) Sven Eisenschmidt <sven.eisenschmidt@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace SE\Supervisor\Web;
 
@@ -7,7 +15,6 @@ use \Silex\ServiceProviderInterface;
 
 use \Indigo\Supervisor\Supervisor;
 use \Indigo\Supervisor\Connector\InetConnector;
-
 
 class SupervisorServiceProvider implements ServiceProviderInterface
 {
@@ -25,16 +32,11 @@ class SupervisorServiceProvider implements ServiceProviderInterface
     }
 
     /**
-     * Bootstraps the application.
      *
-     * This method is called after all services are registered
-     * and should be used for "dynamic" configuration (whenever
-     * a service must be requested).
+     * @param \Silex\Application $app
      */
     public function boot(Application $app)
-    {
-        // TODO: Implement boot() method.
-    }
+    {}
 
 
 } 
