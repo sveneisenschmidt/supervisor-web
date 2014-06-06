@@ -6,10 +6,6 @@ Simple web frontend to remote control a Supervisor instance.
 ![Index](/doc/index.png?raw=true "Index")
 
 
-**Auto "tail" of logs**
-
-![Log file viewer](/doc/process_log.gif?raw=true "Log file viewer")
-
 
 ### Installation
 
@@ -41,4 +37,19 @@ php composer.phar install
 ```
 
 Symlink the *public* folder to your web server folder and open up the folder in your browser.
+
+### Purpose
+
+Obviously you could the stock Supervisor web gui of this web app.
+The advantage of *supervisor-web* are:
+
+* You can put it behind a proxy web server (add LDAP auth, ssl)
+* You can put it on another machine
+* You can fork it and change it to your needs
+* You can *tail -f* your logs in any browser
+
+
+**Auto "tail" of logs**
+
+![Log file viewer](/doc/process_log.gif?raw=true "Log file viewer")
 
