@@ -53,3 +53,6 @@ The advantage of *supervisor-web* are:
 
 ![Log file viewer](/doc/process_log.gif?raw=true "Log file viewer")
 
+### Credits
+
+* [/indigophp/supervisor](indigophp/supervisor)
