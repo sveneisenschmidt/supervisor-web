@@ -7,7 +7,7 @@ Simple web frontend to remote control a Supervisor instance.
 
 
 
-### Installation
+# Installation
 
 Clone the archive. 
 ```bash
@@ -38,7 +38,7 @@ php composer.phar install
 
 Symlink the *public* folder to your web server folder and open up the folder in your browser.
 
-### Purpose
+# Purpose
 
 Obviously you could use the stock Supervisor web gui of this web app.
 The advantage of *supervisor-web* are:
@@ -53,7 +53,7 @@ The advantage of *supervisor-web* are:
 
 ![Log file viewer](/doc/process_log.gif?raw=true "Log file viewer")
 
-### Credits
+# Credits
 
 * [indigophp/supervisor](//github.com/indigophp/supervisor)
 * [silexphp/silex](//github.com/indigophp/supervisor)
