@@ -55,4 +55,7 @@ The advantage of *supervisor-web* are:
 
 ### Credits
 
-* [/indigophp/supervisor](indigophp/supervisor)
+* [indigophp/supervisor](//github.com/indigophp/supervisor)
+* [silexphp/silex](//github.com/indigophp/supervisor)
+* [Supervisor/supervisor](//github.com/Supervisor/supervisor)
+
