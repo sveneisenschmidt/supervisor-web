@@ -40,7 +40,7 @@ Symlink the *public* folder to your web server folder and open up the folder in 
 
 ### Purpose
 
-Obviously you could the stock Supervisor web gui of this web app.
+Obviously you could use the stock Supervisor web gui of this web app.
 The advantage of *supervisor-web* are:
 
 * You can put it behind a proxy web server (add LDAP auth, ssl)
