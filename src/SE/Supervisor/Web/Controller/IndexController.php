@@ -187,7 +187,7 @@ class IndexController
         }
 
         try {
-            $message = call_user_func_array($closure, [$process]);
+            $message = call_user_func_array($closure, array($process));
             $this->session->getFlashBag()->add('success', sprintf($message, $process->getName()));
         } catch (\Exception $e) {
             $this->session->getFlashBag()->add('error', $e->getMessage());
