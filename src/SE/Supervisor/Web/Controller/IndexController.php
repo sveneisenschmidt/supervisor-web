@@ -67,9 +67,9 @@ class IndexController
 
     public function indexAction()
     {
-        return $this->twig->render('Index/index.html.twig', [
+        return $this->twig->render('Index/index.html.twig', array(
             'all_process' => $this->supervisor->getAllProcess()
-        ]);
+        ));
     }
 
     /**
@@ -157,16 +157,16 @@ class IndexController
             $previous = floor($length / 4092);
         }
 
-        return $this->twig->render('Process/log.html.twig', [
+        return $this->twig->render('Process/log.html.twig', array(
             'process' => $process,
             'contents' => $contents,
-            'pagination' => [
+            'pagination' => array(
                 'curr' => $page,
                 'prev' => $previous,
                 'next' => $next,
                 'total' => $total
-            ]
-        ]);
+            )
+        ));
     }
 
     /**
