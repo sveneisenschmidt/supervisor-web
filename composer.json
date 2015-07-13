@@ -7,7 +7,7 @@
         "psr-0": { "": "src/" }
     },
     "require": {
-        "php": ">=5.4.6",
+        "php": ">=5.3.3",
         "silex/silex": "~1.2",
         "twig/twig": "~1.15",
         "indigophp/supervisor": "~1.2",
